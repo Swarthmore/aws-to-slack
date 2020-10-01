@@ -8,7 +8,7 @@ exports.matches = event =>
 exports.parse = event => {
 	const pipeline = event.get("detail.pipeline", "<missing-pipeline>");
 	const state = event.get("detail.state");
-	const type = event.get("detail-type");
+	const type = event.get("detailType", event.get("detail-type", ""));
 	const execId = event.get("detail.execution-id");
 	const stage = event.get("detail.stage", "UNKNOWN");
 	const action = event.get("detail.action", "UNKNOWN");
